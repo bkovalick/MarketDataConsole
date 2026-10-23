@@ -1,0 +1,13 @@
+{
+  "dataSource": {
+    "type": "csv",
+    "path": "data/options"
+  },
+  "strategy": {
+    "type": "generic"
+  },
+  "underlyings": ["AAPL", "MSFT", "SPY"],
+  "startDate": "2023-01-02",
+  "endDate": "2023-01-31",
+  "logFile": "logs/marketdata.log"
+}
