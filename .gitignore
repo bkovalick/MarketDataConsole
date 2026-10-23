@@ -68,3 +68,6 @@ Testing/
 .cache/
 .vs/
 MarketDa.*/
+x64/
+[Dd]ebug/
+[Rr]elease/
