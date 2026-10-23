@@ -35,7 +35,9 @@ Config Config::load(const std::filesystem::path& path)
     config.dataSource.type = json.at("dataSource").at("type").get<std::string>();
     config.dataSource.path = json.at("dataSource").at("path").get<std::string>();
     config.strategy.type = json.at("strategy").at("type").get<std::string>();
-    config.underlyings = json.at("underlyings").get<std::span<const std::string_view>>();
+    //config.underlyings = json.at("underlyings").get<std::span<const std::string_view>>();
+    config.underlyingStorage_ = json.at("underlyings").get<std::vector<std::string>>();
+    config.underlyingViews_.assign(config.underlyingStorage_.begin(), config.underlyingStorage_.end());
     config.startDate = parse_date(json.at("startDate").get<std::string>());
     config.endDate = parse_date(json.at("endDate").get<std::string>());
     config.logFile = json.value("logFile", "logs/marketdata.log");
@@ -43,7 +45,7 @@ Config Config::load(const std::filesystem::path& path)
     if (config.startDate > config.endDate) {
         throw std::runtime_error("startDate must not be after endDate");
     }
-    if (config.underlyings.empty()) {
+    if (config.underlyingViews_.empty()) {
         throw std::runtime_error("At least one underlying is required");
     }
 

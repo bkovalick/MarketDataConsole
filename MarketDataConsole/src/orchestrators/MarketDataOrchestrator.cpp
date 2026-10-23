@@ -1,10 +1,9 @@
 #include "orchestrators/MarketDataOrchestrator.h"
-#include "logging/Logger.h"
 
 void MarketDataOrchestrator::run(const Config& config)
 {
 	Logger::info("Run started");
-	auto underlyings = config.underlyings;
+	auto underlyings = config.underlyings();
 
 	Logger::info("Loading option chains for {} underlyings", underlyings.size());
 

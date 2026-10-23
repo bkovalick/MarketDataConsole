@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
         Logger::init(config.logFile);
         Logger::info("Starting Market Loading Service");
         Logger::info("Data source: {} '{}', strategy: {}, {} underlyings",
-            config.dataSource.type, config.dataSource.path, config.strategy.type, config.underlyings.size());
+            config.dataSource.type, config.dataSource.path, config.strategy.type, config.underlyings().size());
 
         if (config.dataSource.type != "csv") {
             throw std::runtime_error("Unsupported data source type: " + config.dataSource.type);

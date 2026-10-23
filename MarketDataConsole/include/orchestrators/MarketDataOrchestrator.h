@@ -3,10 +3,13 @@
 
 #include <memory>
 #include <string>
+#include <span>
+#include <string_view>
 
 #include "providers/OptionDataProvider.h"
 #include "services/GenericTradingStrategy.h"
 #include "config/Config.h"
+#include "logging/Logger.h"
 
 class MarketDataOrchestrator
 {
